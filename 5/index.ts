@@ -1,5 +1,4 @@
-import { createReadStream, readFileSync } from "fs";
-import { createInterface } from "readline";
+import { readFileSync } from "fs";
 
 async function main() {
   let result = 0;

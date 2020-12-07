@@ -1,5 +1,4 @@
-import { createReadStream, readFile, readFileSync } from "fs";
-import { createInterface } from "readline";
+import { readFileSync } from "fs";
 
 const width = 32;
 

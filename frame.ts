@@ -1,10 +1,9 @@
-import { createReadStream, readFileSync } from "fs";
-import { createInterface } from "readline";
+import { readFileSync } from "fs";
 
 async function main() {
   let result = 0;
   const file = readFileSync("input.txt", "utf-8");
-  const rows = file.split("/n").map((r) => {
+  const rows = file.split("\n").map((r) => {
     return r;
   });
 
