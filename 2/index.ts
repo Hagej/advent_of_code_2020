@@ -2,7 +2,7 @@ import { createReadStream } from "fs";
 import { createInterface } from "readline";
 
 async function main() {
-  const file = createReadStream("input.txt", "utf-8");
+  const file = createReadStream(process.argv[2], "utf-8");
   const rl = createInterface({
     input: file,
     crlfDelay: Infinity,

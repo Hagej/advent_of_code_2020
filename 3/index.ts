@@ -1,11 +1,20 @@
 import { readFileSync } from "fs";
 
-const width = 32;
-
 async function main() {
-  const file = readFileSync("input.txt", "utf-8");
+  const file = readFileSync(process.argv[2], "utf-8");
   const values = file.split("\n");
+  const width = values[0].length;
   let result = 1;
+
+  function traverseSlope(values: string[], right: number, down: number) {
+    let index = 0;
+    let trees = 0;
+    for (let i = 0; i < values.length; i += down) {
+      if (values[i].charAt(index % width) === "#") trees++;
+      index += right;
+    }
+    return trees;
+  }
 
   result *= traverseSlope(values, 1, 1);
   result *= traverseSlope(values, 3, 1);
@@ -13,17 +22,7 @@ async function main() {
   result *= traverseSlope(values, 7, 1);
   result *= traverseSlope(values, 1, 2);
 
-  console.log("Result:", result);
-}
-
-function traverseSlope(values: string[], right: number, down: number) {
-  let index = 0;
-  let trees = 0;
-  for (let i = 0; i < values.length; i += down) {
-    if (values[i].charAt(index % (width - 1)) === "#") trees++;
-    index += right;
-  }
-  return trees;
+  console.log(result);
 }
 
 main();

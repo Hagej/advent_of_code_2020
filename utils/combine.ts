@@ -17,3 +17,13 @@ export function numArrayCombine(a: number[], b: number[]) {
   }
   return result;
 }
+
+export function numArrayCombinations(numbers: number[]): number[] {
+  const result = [];
+  for (let i = 0; i < numbers.length; i++) {
+    for (let j = i + 1; j < numbers.length; j++) {
+      result.push(numbers[i] + numbers[j]);
+    }
+  }
+  return result;
+}

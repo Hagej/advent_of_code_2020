@@ -3,7 +3,7 @@ import { readFileSync } from "fs";
 const requiredFields = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"];
 
 async function main() {
-  const file = readFileSync("input.txt", "utf-8");
+  const file = readFileSync(process.argv[2], "utf-8");
   const values = file.split("\n");
 
   let passportData: string[] = [];
@@ -20,7 +20,7 @@ async function main() {
     }
   }
 
-  console.log("Result:", result);
+  console.log(result);
 }
 
 function isValidPassport(passportData: string[]): boolean {

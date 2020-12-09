@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 
 export function main() {
-  const text = readFileSync("input.txt", "utf-8");
+  const text = readFileSync(process.argv[2], "utf-8");
   const values = text.split("\n");
   const ints = values.map((v) => parseInt(v));
   for (let i = 0; i < ints.length; i++) {

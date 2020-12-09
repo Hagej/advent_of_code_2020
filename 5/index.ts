@@ -2,7 +2,7 @@ import { readFileSync } from "fs";
 
 async function main() {
   let result = 0;
-  const file = readFileSync("input.txt", "utf-8");
+  const file = readFileSync(process.argv[2], "utf-8");
   const rows = file.split("\n").map((r) => {
     return r;
   });
@@ -15,15 +15,10 @@ async function main() {
     result = Math.max(result, seatNum[0] + seatNum[1] * 8);
   });
 
-  const sortedSeats = seats.sort(
-    (a, b) => parseInt("" + a[1] + a[0]) - parseInt("" + b[1] + b[0])
-  );
-  console.log(sortedSeats);
-
   const seatIds = seats.map((s) => s[0] + s[1] * 8);
   const sorted = seatIds.sort((a, b) => a - b);
 
-  const mySeat = sorted.find((s, index) => {
+  sorted.find((s, index) => {
     if (index !== 0 || index !== seats.length - 1) {
       if (sorted[index + 1] !== s + 1) {
         result = s + 1;
