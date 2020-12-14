@@ -3,5 +3,5 @@ export function sum(a: number[]) {
 }
 
 export function product(a: number[]) {
-  return a.reduce((sum, cur) => sum * cur, 0);
+  return a.reduce((sum, cur) => sum * cur, 1);
 }
